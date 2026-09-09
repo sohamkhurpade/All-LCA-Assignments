@@ -1,1 +1,50 @@
+# Assignment 4: Addition of Two Matrices using Nested Lists and NumPy
+import numpy as np
 
+# Taking matrix dimensions
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
+
+# Function to read matrix using nested lists
+def read_matrix(name, r, c):
+    print(f"\nEnter elements of Matrix {name}:")
+    matrix = []
+    for i in range(r):
+        row = []
+        for j in range(c):
+            val = int(input(f"Enter element [{i}][{j}]: "))
+            row.append(val)
+        matrix.append(row)
+    return matrix
+
+# Input matrices
+matrix_A = read_matrix("A", rows, cols)
+matrix_B = read_matrix("B", rows, cols)
+
+# ----------------------------------------------------
+# Method 1: Using Standard Python Lists (Nested Loops)
+# ----------------------------------------------------
+result_list = [[0 for _ in range(cols)] for _ in range(rows)]
+
+for i in range(rows):
+    for j in range(cols):
+        result_list[i][j] = matrix_A[i][j] + matrix_B[i][j]
+
+print("\n" + "=" * 45)
+print("Result using Nested Lists:")
+print("=" * 45)
+for row in result_list:
+    print(row)
+
+# ----------------------------------------------------
+# Method 2: Using NumPy Array
+# ----------------------------------------------------
+np_A = np.array(matrix_A)
+np_B = np.array(matrix_B)
+
+result_numpy = np_A + np_B
+
+print("\n" + "=" * 45)
+print("Result using NumPy Array Addition:")
+print("=" * 45)
+print(result_numpy)
