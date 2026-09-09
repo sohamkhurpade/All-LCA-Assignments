@@ -1,1 +1,56 @@
+# Assignment 1: Operations on Tuples and Dictionaries
 
+print("=" * 40)
+print("PART 1: TUPLE OPERATIONS")
+print("=" * 40)
+
+# 1. Creation
+tup = (10, 20, 30, 40, 20)
+print(f"Original Tuple: {tup}")
+
+# 2. Accessing & Slicing
+print(f"Element at index 1: {tup[1]}")
+print(f"Sliced tuple (index 1 to 3): {tup[1:4]}")
+
+# 3. Append (via Concatenation)
+tup = tup + (50,)
+print(f"After Appending 50: {tup}")
+
+# 4. Remove (via List conversion)
+temp_list = list(tup)
+temp_list.remove(20)  # Removes first occurrence of 20
+tup = tuple(temp_list)
+print(f"After Removing first 20: {tup}")
+
+# 5. Built-in Methods
+print(f"Count of 20: {tup.count(20)}")
+print(f"Index of 40: {tup.index(40)}")
+
+print("\n" + "=" * 40)
+print("PART 2: DICTIONARY OPERATIONS")
+print("=" * 40)
+
+# 1. Creation
+student = {
+    "roll_no": 101,
+    "name": "Alex",
+    "course": "Computer Engineering"
+}
+print(f"Original Dictionary: {student}")
+
+# 2. Append / Add new element
+student["year"] = "First Year"
+print(f"After Adding 'year': {student}")
+
+# 3. Update existing value
+student["name"] = "Alexander"
+print(f"After Updating 'name': {student}")
+
+# 4. Remove elements
+removed_val = student.pop("course")
+print(f"Removed 'course' ({removed_val}): {student}")
+
+# 5. Iteration & Inspection
+print(f"Keys: {list(student.keys())}")
+print(f"Values: {list(student.values())}")
+print(f"Items: {list(student.items())}")
