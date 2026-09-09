@@ -1,1 +1,31 @@
+# Assignment 3: Check whether a triangle is right-angled using a function
 
+def is_right_angled(a, b, c):
+    """
+    Function to check if sides a, b, and c form a right-angled triangle.
+    """
+    # Sort sides so that 'hypotenuse' is the largest side
+    sides = sorted([a, b, c])
+    x, y, z = sides[0], sides[1], sides[2]
+
+    # Verify standard triangle inequality
+    if x <= 0 or (x + y <= z):
+        return False
+
+    # Check Pythagoras theorem (using round to avoid floating-point inaccuracies)
+    return round(x**2 + y**2, 5) == round(z**2, 5)
+
+# Main Program
+print("=" * 45)
+print("Right-Angled Triangle Checker")
+print("=" * 45)
+
+side1 = float(input("Enter length of first side: "))
+side2 = float(input("Enter length of second side: "))
+side3 = float(input("Enter length of third side: "))
+
+# Function Calling
+if is_right_angled(side1, side2, side3):
+    print(f"\nThe sides {side1}, {side2}, and {side3} form a Right-Angled Triangle.")
+else:
+    print(f"\nThe sides {side1}, {side2}, and {side3} DO NOT form a Right-Angled Triangle.")
