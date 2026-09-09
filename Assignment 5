@@ -1,1 +1,36 @@
+# Assignment 5: Check if a string contains only a-z, A-Z, and 0-9
+import re
 
+def check_alphanumeric_regex(text):
+    """
+    Checks if string contains only a-z, A-Z, and 0-9 using Regular Expressions.
+    """
+    pattern = r'^[a-zA-Z0-9]+$'
+    return bool(re.match(pattern, text))
+
+def check_alphanumeric_builtin(text):
+    """
+    Alternative check using Python's built-in str.isalnum() method.
+    """
+    return text.isalnum()
+
+# Main Program
+print("=" * 55)
+print("String Character Validator (a-z, A-Z, 0-9)")
+print("=" * 55)
+
+user_string = input("Enter a string to test: ")
+
+print("\n--- Validation Results ---")
+
+# Method 1: Regular Expressions
+if check_alphanumeric_regex(user_string):
+    print("[RegEx] Valid: The string contains ONLY a-z, A-Z, and 0-9.")
+else:
+    print("[RegEx] Invalid: The string contains spaces, special characters, or is empty.")
+
+# Method 2: Built-in isalnum()
+if check_alphanumeric_builtin(user_string):
+    print("[Built-in isalnum()] Valid: String is alphanumeric.")
+else:
+    print("[Built-in isalnum()] Invalid: String is not purely alphanumeric.")
